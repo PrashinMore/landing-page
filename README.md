@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Reusable Local Business Landing Page
 
-## Getting Started
+Modern, high-converting landing page template for outreach demos and quick client customization.
 
-First, run the development server:
+Built with:
+
+- Next.js (App Router)
+- React + TypeScript
+- Tailwind CSS
+- Framer Motion
+
+## Run Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Folder Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```text
+src/
+  app/
+    globals.css
+    layout.tsx
+    page.tsx
+  components/
+    landing/
+      before-after.tsx
+      cta-form.tsx
+      features.tsx
+      footer.tsx
+      hero.tsx
+      landing-page.tsx
+      navbar.tsx
+      portfolio.tsx
+      section-title.tsx
+      social-proof.tsx
+      whatsapp-float.tsx
+  data/
+    landing-config.ts
+  types/
+    landing.ts
+```
 
-## Learn More
+## Quick Customization
 
-To learn more about Next.js, take a look at the following resources:
+Edit `src/data/landing-config.ts` to quickly adapt for any niche:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- All text copy
+- Placeholder testimonials and business names
+- Portfolio images and labels
+- CTA labels
+- Contact info
+- Theme presets (restaurant / salon / gym)
+- WhatsApp number (`whatsappNumber`)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Included Features
 
-## Deploy on Vercel
+- Fully responsive, mobile-first layout
+- Smooth scroll navigation
+- Premium cards, soft shadows, rounded UI
+- Reusable component-based sections
+- Framer Motion reveal animations
+- Simple lead form UI (frontend only)
+- Floating WhatsApp button linking to configured number
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Remote images are configured for Unsplash in `next.config.ts`.
+- Replace any placeholder links (`#`) with real URLs when you deploy.
+
+## Deploy on GitHub Pages
+
+This project is now configured for GitHub Pages static hosting:
+
+- `next.config.ts` uses static export (`output: "export"`).
+- Base path is auto-detected in GitHub Actions using repository name.
+- Workflow file is at `.github/workflows/deploy-pages.yml`.
+
+### One-time GitHub setup
+
+1. Push this project to a GitHub repository.
+2. Go to repository **Settings** -> **Pages**.
+3. Set **Source** to **GitHub Actions**.
+4. Ensure your default deployment branch is `main` (or update workflow trigger branch).
+
+### Deploy
+
+Every push to `main` will:
+
+1. Build the Next.js app
+2. Export static files to `out/`
+3. Deploy to GitHub Pages
+
+Your live URL will be:
+
+`https://<your-github-username>.github.io/<your-repo-name>/`
